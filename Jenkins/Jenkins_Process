@@ -1,5 +1,10 @@
 Jenkins Installation Process...
 
+Jenkins Credentails..
+
+User : admin
+Pwd  : jenkinsadmin
+
 To know the status of Jenkins:
 
 sudo service jenkins status
