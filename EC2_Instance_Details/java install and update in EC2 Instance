@@ -1,0 +1,33 @@
+Java Installtion in EC2 Machine
+
+Go To JAVA PATH:
+
+https://stackoverflow.com/questions/10268583/downloading-java-jdk-on-linux-via-wget-is-shown-license-page-instead
+
+Seach for " UPDATED FOR JDK 8u131 "
+
+Select :
+
+  wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+
+
+GoTo EC2-Machine
+
+1)change the user as  root 
+2)create directory  like  java
+3) fire the above command  & it will download   java   rpm package
+4) install java using this commnd   like  "" sudo rpm -Uvh jdk-8u131-linux-x64.rpm "" 
+
+check java version
+
+java -version
+
+===========================================================
+
+check multiple javas installed or java update in EC2 instace.
+
+sudo /usr/sbin/alternatives --config java
+
+
+
+
