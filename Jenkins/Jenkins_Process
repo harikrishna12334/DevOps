@@ -1,2 +1,14 @@
 Jenkins Installation Process...
 
+To know the status of Jenkins:
+
+sudo service jenkins status
+To start the Jenkins:
+
+sudo service jenkins start
+To stop the Jenkins:
+
+sudo service jenkins stop
+To restart the Jenkins:
+
+sudo service jenkins restart
