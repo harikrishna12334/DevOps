@@ -12,3 +12,13 @@ git remote add origin https://github.com/harikrishna12334/DevOps.git
 git push -u origin master
 …or import code from another repository
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+
+
+==========================================================================================
+
+github server under jenkins -- > system configuration --> githubserver -->
+
+token credate 
+
+Created credentials with id d2e2d344-96f0-452f-a2fe-06371371ff00 (can use it for GitHub Server Config)
