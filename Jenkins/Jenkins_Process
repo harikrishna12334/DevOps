@@ -197,6 +197,27 @@ sudo service jenkins status
 sudo service jenkins stop
 
 
+==============================================================
+Auto start jenkins
+==============================================================
+
+sudo chkconfig --list jenkins
+
+Note: This output shows SysV services only and does not include native
+      systemd services. SysV configuration data might be overridden by native
+      systemd configuration.
+
+      If you want to list systemd services use 'systemctl list-unit-files'.
+      To see services enabled on particular target use
+      'systemctl list-dependencies [target]'.
+
+
+systemctl list-unit-files
+
+all enable or disable service -- system daemons
+
+
+
 
 
 
