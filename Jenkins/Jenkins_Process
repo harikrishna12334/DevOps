@@ -66,6 +66,8 @@ You can install jenkins using the rpm or by setting up the repo. We will setup t
 
 yum -y install wget
 wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat/jenkins.repo
+
 rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 yum -y install jenkins
 Start Jenkins
@@ -119,12 +121,39 @@ yum -y install jenkins
 
 
 =========================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+
+
 
 Jenkins installation in Linux os
 
-switch to root user
 
-sudo su -
+===========================
+switch to root user
+===========================
+sudo su  / sudo su -
+
+===========================
+Check for YUM Updates
+===========================
+yum update -y
+
+===========================
+Install Java
+===========================
+
+cd /DevOps
+mkdir java
+chmod 777 java
+
+yum install java-1.8.0
+yum remove java-1.7.0-openjdk
+
+===========================
+jenkins installation
+===========================
+
 cd /DevOps
 mkdir jenkins
 chmod 777 jenkins
@@ -138,6 +167,34 @@ pwd
 wget https://www.edureka.co/blog/install-jenkins/
 
 
+
+follow above process for jenkins installation
+
+
+==================================================================================================================================
+
+
+=======================
+jenkins issue
+
+===========================
+
+Job for jenkins.service failed because the control process exited with error code. See "systemctl status jenkins.service" and "journalctl -xe" for details.
+
+Solution:
+
+Edit the Jenkins init file by doing
+
+sudo vi /etc/init.d/jenkins
+Add your own Java path, for example:
+
+/opt/oracle/product/java/jdk1.8.0_45/bin/java
+/DevOps/java/jdk1.8.0_191/bin/java
+Restart the service:
+
+sudo service jenkins start
+sudo service jenkins status
+sudo service jenkins stop
 
 
 
