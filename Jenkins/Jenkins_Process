@@ -216,7 +216,7 @@ systemctl list-unit-files
 
 all enable or disable service -- system daemons
 
-
+Jenkins + git intigration is done
 
 
 
