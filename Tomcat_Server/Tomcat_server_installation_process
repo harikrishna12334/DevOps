@@ -1,0 +1,28 @@
+Tomcat_server_installation_process
+
+download path tar ball
+extrac 
+
+/DevOps/tomcat/apache-tomcat-8.5.35/bin
+
+soft link set process
+
+ln -s /DevOps/tomcat/apache-tomcat-8.5.35/bin/starup.sh /usr/local/bin/tomcatup
+ln -s /DevOps/tomcat/apache-tomcat-8.5.35/bin/shutdonw.sh /usr/local/bin/tomcatdown
+
+
+============================
+1) change the port in config/server.xml 
+
+port = 8080  -->  8082
+
+2) add console user & password  in config/tomacat-user.xml
+  <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-jmx"/>
+  <role rolename="manager-status/>
+  <user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+  <user username="deployer" password="deployer" roles="manager-script" />
+  <user username="tomcat" password="s3cret" roles="manager-gui"/>
+
+
