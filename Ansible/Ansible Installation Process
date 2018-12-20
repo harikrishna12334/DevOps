@@ -1,1 +1,122 @@
 Ansible Installation Process...
+
+
+lunch the EC2 _instance
+
+yum update -y
+
+install 3rd party- required package
+
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+yum install ansible 
+
+ansible --version
+
+
+==============================
+
+create user for accessing the ansible throughout envirment
+
+
+useradd ansibleadmin
+passwd  ansibleadmin
+
+provide the sudo authentication
+
+visudo
+
+ansible ALL=(ALL)  NOPASSWD: ALL
+ec2-user ALL=(ALL) NOPASSWD: ALL
+
+Password Authentication
+
+vi /etc/ssh/sshd_config
+
+#PasswrordAuthentication no
+PasswrordAuthentication yes
+
+
+restat the system daemon services
+
+service sshd restart
+
+
+swtihc the user to ansible 
+
+su ansibleadmin
+
+
+
+generate the pulic & private keys for connective
+
+
+ssh-keygen    
+
+ls -lrt   .ssh  
+
+copy keys to host/client system
+
+
+
+ssh-copy-id <host-IP4>
+
+swithc the server using ssh
+
+ssh <host-IP>
+
+
+================================================================================
+
+
+sudo vi /etc/ansible/hosts
+
+[all hosts]
+172.16.18.15
+172.16.10.15
+
+ping the server ;
+copy the files, directories
+install the Apache http server
+
+ansible all -m ping
+ansible all -m copy -a "src=/home/ansibleadmin dest=/home/ansibleadmin"
+ansible all -m copy -a "src=/home/ansibleadmin/hellow.html dest=/home/ansibleadmin"
+ansible all -m yum -a "name=httpd state=latest"
+ansible -s all -m yum -a "name=httpd state=latest"
+ansible -s all -m service -a "name=httpd state=started"
+
+
+==========================================================================================================================
+
+[ansibleadmin@ip-172-31-28-164 ~]$ history
+    1  vi /etc/ansible/hosts
+    2  ls -ld /etc/ansible/
+    3  ls -lrt
+    4  clear
+    5  sudo vi /etc/ansible/hosts
+    6  ansible all -m ping
+    7  cd /home/ansibleadmin/
+    8  clear
+    9  pwd
+   10  cat > hellow.html
+   11  ls
+   12  ansible all -m copy -a "src=/home/ansibleadmin dest=/home/ansibleadmin"
+   13  ansible all -m copy -a "src=/home/ansibleadmin/hellow.html dest=/home/ansibleadmin"
+   14  clear
+   15  ls -lrt
+   16  mkdir testfiles
+   17  cd testfiles/
+   18  touch 333
+   19  cd ..
+   20  ls -lrt
+   21  ansible all -m copy -a "src=/home/ansibleadmin/testfiles dest=/home/ansibleadmin"
+   22  clear
+   23  ansible all -m yum -a "name=httpd state=latest"
+   24  ansible -s  all -m yum -a "name=httpd state=latest"
+   25  clear
+   26  history
+   27  ansible -s all -m service -a "name=httpd state=started"
+   28  history
+=======================================================================================================================
+
