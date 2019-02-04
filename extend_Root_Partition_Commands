@@ -1,0 +1,8 @@
+
+extend the Root volume in AWS
+
+df -h
+
+lsblk
+growpart /dev/xvda 1
+resize2fs /dev/xvda1
